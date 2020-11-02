@@ -1,5 +1,3 @@
-import { CDate } from './modules/xhAssistFront.js';
-
 export * from './config/globalConfig.js';
 export * from './modules/xhAssistFront.js';
 
