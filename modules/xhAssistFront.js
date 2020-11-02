@@ -10,9 +10,29 @@ class CUtil {
 
 
 
+    static ObjectFindAttr(obj, attrname, attrValue) {
+        try {
+            let ele = {};
+
+            for (let x in obj) {
+                if (obj[x][attrName] == attrValue) {
+                    ele = obj[x];
+                    break;
+                }
+            }
+
+            return ele;
+        } catch (e) {
+            return false;
+        }
+    }
+
+
+
 }
 
 export default CUtil;
+
 
 
 /**
@@ -25,7 +45,7 @@ class CDate {
     constructor() { }
 
 
-    // 获取日期
+    // [格式化日期]
     static FormatDate(strDate) {
         try {
             return new Date(strDate);
@@ -35,6 +55,7 @@ class CDate {
 
     }
 
+    // [获取年份]
     static GetFullYear(strDate) {
         try {
             strDate = this.FormatDate(strDate);
@@ -45,6 +66,7 @@ class CDate {
         }
     }
 
+    // [获取月份]
     static GetMonth(strDate) {
         try {
             strDate = this.FormatDate(strDate);
@@ -57,6 +79,7 @@ class CDate {
         }
     }
 
+    // [获取日期]
     static GetDay(strDate) {
         try {
             strDate = this.FormatDate(strDate);
@@ -69,6 +92,7 @@ class CDate {
         }
     }
 
+    // [获取时数]
     static GetHour(strDate) {
         try {
             strDate = this.FormatDate(strDate);
@@ -81,6 +105,7 @@ class CDate {
         }
     }
 
+    // [后去分数]
     static GetMinute(strDate) {
         try {
             strDate = this.FormatDate(strDate);
@@ -93,6 +118,7 @@ class CDate {
         }
     }
 
+    // [获取秒数]
     static GetSecond(strDate) {
         try {
             strDate = this.FormatDate(strDate);
@@ -105,23 +131,26 @@ class CDate {
         }
     }
 
+    // [获取 年-月-日]
     static GetFullDate(strDate) {
         strDate = strDate ? strDate : new Date();
         return this.GetFullYear(strDate) + '-' + this.GetMonth(strDate) + '-' + this.GetDay(strDate);
     }
 
+    // [获取 时:分:秒]
     static GetFullTime(strDate) {
         strDate = strDate ? strDate : new Date();
         return this.GetHour(strDate) + ':' + this.GetMinute(strDate) + ':' + this.GetSecond(strDate);
     }
 
+    // [获取 年-月-日 时:分:秒]
     static GetFullDateTime(strDate) {
         return this.GetFullDate() + ' ' + this.GetFullTime();
     }
 
 
 
-    // 设置日期
+    // [设置年份]
     static SetYear(strDate, posYear) {
         try {
             strDate = this.FormatDate(strDate);
@@ -134,6 +163,7 @@ class CDate {
         }
     }
 
+    // [设置月份]
     static SetMonth(strDate, posMonth) {
         try {
             strDate = this.FormatDate(strDate);
@@ -146,6 +176,7 @@ class CDate {
         }
     }
 
+    // [设置天数日期]
     static SetDay(strDate, posDay) {
         try {
             strDate = this.FormatDate(strDate);
@@ -158,6 +189,7 @@ class CDate {
         }
     }
 
+    // [设置时数]
     static SetHour(strDate, posHour) {
         try {
             strDate = this.FormatDate(strDate);
@@ -170,6 +202,7 @@ class CDate {
         }
     }
 
+    // [设置分数]
     static SetMinute(strDate, posMinute) {
         try {
             strDate = this.FormatDate(strDate);
@@ -182,6 +215,7 @@ class CDate {
         }
     }
 
+    // [设置秒数]
     static SetSecond(strDate, posSecond) {
         try {
             strDate = this.FormatDate(strDate);
