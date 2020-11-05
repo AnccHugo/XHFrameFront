@@ -1,22 +1,31 @@
-// import path
-
-
 /**
  * @class CUtil
  * @description 全局变量类
 */
+
 class CUtil {
+
     constructor() { }
 
 
 
+    // [对象检查 - 是否为空]
+    static ObjectIsEmpty(obj) {
+        for (let key in obj) {
+            return false;
+        }
+
+        return true;
+    }
+
+    // [对象查找 - 根据属性名:键值]
     static ObjectFindAttr(obj, attrname, attrValue) {
         try {
             let ele = {};
 
-            for (let x in obj) {
-                if (obj[x][attrName] == attrValue) {
-                    ele = obj[x];
+            for (let key in obj) {
+                if (obj[key][attrName] == attrValue) {
+                    ele = obj[key];
                     break;
                 }
             }
@@ -26,6 +35,25 @@ class CUtil {
             return false;
         }
     }
+
+
+    // [生成1个指定范围的随机数]
+    static RandomIntNum(minNum, maxNum) {
+        try {
+            switch (arguments.length) {
+                case 2:
+                    return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+                default:
+                    return parseInt(Math.random() * minNum + 1, 10);
+            }
+        } catch (e) {
+            return 0;
+        }
+    }
+
+
+
+
 
 
 
@@ -42,7 +70,9 @@ export default CUtil;
 */
 
 class CDate {
+
     constructor() { }
+
 
 
     // [格式化日期]

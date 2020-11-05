@@ -1,8 +1,11 @@
-export * from './config/globalConfig.js';
-export * from './modules/xhAssistFront.js';
+import globalConfig from './config/globalConfig.js';
+import Router from './modules/Router.js';
 
 
 
+window.onload = function () {
+    document.title = globalConfig.siteTitle;
 
-
-console.debug('这是小何的前端模块化测试项目');
+    const router = new Router(globalConfig.routes);
+    router.go(-1);
+};
